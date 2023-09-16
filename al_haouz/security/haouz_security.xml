@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Security Rules for User Group -->
+        <record id="rule_user_shipment_access" model="ir.rule">
+            <field name="name">User Shipment Access Rule</field>
+            <field name="model_id" ref="model_earthquake_shipment"/>
+            <field name="domain_force">[('create_uid', '=', user.id)]</field>
+            <field name="perm_create" eval="1"/>
+            <field name="perm_read" eval="1"/>
+            <field name="perm_write" eval="1"/>
+            <field name="perm_unlink" eval="1"/>
+        </record>
+        <!-- Security Rules for Supervisor Group -->
+        <record id="rule_supervisor_shipment_access" model="ir.rule">
+            <field name="name">Supervisor Shipment Access Rule</field>
+            <field name="model_id" ref="model_earthquake_shipment"/>
+            <field name="domain_force">[]</field>
+            <field name="perm_create" eval="1"/>
+            <field name="perm_read" eval="1"/>
+            <field name="perm_write" eval="1"/>
+            <field name="perm_unlink" eval="1"/>
+        </record>
+    </data>
+</odoo>

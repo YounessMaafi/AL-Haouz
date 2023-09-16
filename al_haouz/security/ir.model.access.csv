@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_earthquake_location,earthquake.location,model_earthquake_location,base.group_user,1,1,1,1
+access_earthquake_shipment,earthquake.shipment,model_earthquake_shipment,base.group_user,1,1,1,1
+access_earthquake_help_type,access_earthquake_help_type,model_earthquake_help_type,base.group_user,1,1,1,1
+access_hospital_helper,access_hospital_helper,model_hospital_helper,base.group_user,1,1,1,1
+al_haouz.access_earthquake_help_request,access_earthquake_help_request,al_haouz.model_earthquake_help_request,base.group_user,1,1,1,1

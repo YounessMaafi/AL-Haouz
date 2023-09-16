@@ -1,0 +1,78 @@
+<odoo>
+<data>
+
+    <record id="view_earthquake_help_request_tree" model="ir.ui.view">
+        <field name="name">view.earthquake.help.request.tree</field>
+        <field name="model">earthquake.help.request</field>
+        <field name="arch" type="xml">
+            <tree string="Hospital Help Request">
+                <field name="create_uid" />
+                <field name="create_date" />
+                <field name="name" />
+                <field name="location_id" />
+                <field name="description" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_earthquake_help_request_form" model="ir.ui.view">
+        <field name="name">view.earthquake.help.request.form</field>
+        <field name="model">earthquake.help.request</field>
+        <field name="arch" type="xml">
+            <form string="Hospital Help Request">
+                <group>
+                    <field name="create_uid" />
+                    <field name="create_date" />
+                    <field name="name" />
+                    <field name="location_id" />
+                    <field name="description" />
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_earthquake_help_request_search" model="ir.ui.view">
+        <field name="name">view.earthquake.help.request.search</field>
+        <field name="model">earthquake.help.request</field>
+        <field name="arch" type="xml">
+            <search string="Hospital Help Request">
+                <field name="create_uid" />
+                <field name="create_date" />
+                <field name="name" />
+                <field name="location_id" />
+                <field name="description" />
+            </search>
+        </field>
+    </record>
+
+
+    <record id="earthquake_help_request_act_window" model="ir.actions.act_window">
+        <field name="type">ir.actions.act_window</field>
+        <field name="name">Earthquake Help Request</field>
+        <field name="res_model">earthquake.help.request</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="view_earthquake_help_request_search" />
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Click to add new Earthquake Help Request
+            </p><p>
+            </p>
+        </field>
+    </record>
+
+    <menuitem
+        name="Help Requests"
+        id="menu_earthquake_help_request_root"
+        web_icon="al_haouz,static/description/help_request_icon.png"
+        sequence="3"
+        />
+
+    <record id="menu_earthquake_help_request" model="ir.ui.menu" >
+        <field name="name">Help Requests</field>
+        <field name="parent_id" ref="menu_earthquake_help_request_root" />
+        <field name="action" ref="earthquake_help_request_act_window" />
+        <field name="sequence" eval="1" />
+    </record>
+
+</data>
+</odoo>

@@ -1,0 +1,46 @@
+<odoo>
+<data>
+
+    <record id="view_hospital_helper_tree" model="ir.ui.view">
+        <field name="name">view.hospital.helper.tree</field>
+        <field name="model">hospital.helper</field>
+        <field name="arch" type="xml">
+            <tree string="Hospital Helper">
+                <field name="name" />
+                <field name="phone" />
+                <field name="address" />
+                <field name="description" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_hospital_helper_form" model="ir.ui.view">
+        <field name="name">view.hospital.helper.form</field>
+        <field name="model">hospital.helper</field>
+        <field name="arch" type="xml">
+            <form string="Hospital Helper">
+                <group>
+                    <field name="name" />
+                    <field name="phone" />
+                    <field name="address" />
+                    <field name="description" />
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_hospital_helper_search" model="ir.ui.view">
+        <field name="name">view.hospital.helper.search</field>
+        <field name="model">hospital.helper</field>
+        <field name="arch" type="xml">
+            <search string="Hospital Helper">
+                <field name="name" />
+                <field name="phone" />
+                <field name="address" />
+                <field name="description" />
+            </search>
+        </field>
+    </record>
+
+</data>
+</odoo>

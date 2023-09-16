@@ -1,0 +1,14 @@
+<odoo>
+    <data>
+        <record id="ir_cron_compute_shipments_data" model="ir.cron">
+            <field name="name">Compute Shipments Data</field>
+            <field name="model_id" ref="model_earthquake_location"/>
+            <field name="interval_number">1</field>
+            <field name="code">model._compute_shipments_data()</field>
+            <field name="interval_type">minutes</field>
+            <field name="numbercall">-1</field>
+            <field name="nextcall">2023-09-18 00:00:00</field> <!-- Set the desired start date and time -->
+            <field name="active" eval="True"/>
+        </record>
+    </data>
+</odoo>

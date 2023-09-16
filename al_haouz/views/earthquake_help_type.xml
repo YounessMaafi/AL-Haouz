@@ -1,0 +1,79 @@
+<odoo>
+<data>
+
+    <record id="view_earthquake_help_type_tree" model="ir.ui.view">
+        <field name="name">view.earthquake.help.type.tree</field>
+        <field name="model">earthquake.help.type</field>
+        <field name="arch" type="xml">
+            <tree string="Eearthquake Help Type">
+                <field name="name" />
+                <field name="description" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_earthquake_help_type_form" model="ir.ui.view">
+        <field name="name">view.earthquake.help.type.form</field>
+        <field name="model">earthquake.help.type</field>
+        <field name="arch" type="xml">
+            <form string="Earthquake Help Type">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="Name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <field name="description"/>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_earthquake_help_type_search" model="ir.ui.view">
+        <field name="name">view.earthquake.help.type.search</field>
+        <field name="model">earthquake.help.type</field>
+        <field name="arch" type="xml">
+            <search string="Earthquake Help Type Search">
+                <field name="name"/>
+                <field name="description"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="earthquake_help_type_act_window" model="ir.actions.act_window">
+        <field name="type">ir.actions.act_window</field>
+        <field name="name">Earthquake Help Type</field>
+        <field name="res_model">earthquake.help.type</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="view_earthquake_help_type_search" />
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Click to add new Earthquake Help Type
+            </p><p>
+            </p>
+        </field>
+    </record>
+
+    <menuitem
+        name="Help Types"
+        id="menu_earthquake_help_type_root"
+        web_icon="al_haouz,static/description/help_type_icon.png"
+        sequence="4"
+        />
+
+    <record id="menu_earthquake_help_type" model="ir.ui.menu" >
+        <field name="name">Help Types</field>
+        <field name="parent_id" ref="menu_earthquake_help_type_root" />
+        <field name="action" ref="earthquake_help_type_act_window" />
+        <field name="sequence" eval="3" />
+    </record>
+
+</data>
+</odoo>

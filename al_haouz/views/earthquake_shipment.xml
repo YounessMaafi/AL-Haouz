@@ -1,0 +1,85 @@
+<odoo>
+<data>
+
+    <record id="view_earthquake_shipment_tree" model="ir.ui.view">
+        <field name="name">view.earthquake.shipment.tree</field>
+        <field name="model">earthquake.shipment</field>
+        <field name="arch" type="xml">
+            <tree string="Eearthquake Shipment">
+                <field name="shipment_date" />
+                <field name="destination_location_id" />
+                <field name="help_type_ids" widget="many2many_tags" options="{'no_create': True, 'color_field': 'color'}"  />
+                <field name="vehicle_plate" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_earthquake_shipment_form" model="ir.ui.view">
+        <field name="name">view.earthquake.shipment.form</field>
+        <field name="model">earthquake.shipment</field>
+        <field name="arch" type="xml">
+            <form string="Earthquake Shipment">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="shipment_date" placeholder="Shipment Date"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <field name="destination_location_id"/>
+                        <field name="help_type_ids" widget="many2many_tags" options="{'no_create': True, 'color_field': 'color'}"  />
+                        <field name="vehicle_plate"/>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_earthquake_shipment_search" model="ir.ui.view">
+        <field name="name">view.earthquake.shipment.search</field>
+        <field name="model">earthquake.shipment</field>
+        <field name="arch" type="xml">
+            <search string="Earthquake Shipment Search">
+                <field name="shipment_date"/>
+                <field name="destination_location_id"/>
+                <field name="help_type_ids"/>
+                <field name="vehicle_plate"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="earthquake_shipment_act_window" model="ir.actions.act_window">
+        <field name="type">ir.actions.act_window</field>
+        <field name="name">Earthquake Shipment</field>
+        <field name="res_model">earthquake.shipment</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="view_earthquake_shipment_search" />
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Click to add new Earthquake Shipment
+            </p><p>
+            </p>
+        </field>
+    </record>
+
+    <menuitem
+        name="Shipments"
+        id="menu_earthquake_shipment_root"
+        web_icon="al_haouz,static/description/shipment_icon.png"
+        sequence="2"
+        />
+
+    <record id="menu_earthquake_shipment" model="ir.ui.menu" >
+        <field name="name">Shipments</field>
+        <field name="parent_id" ref="menu_earthquake_shipment_root" />
+        <field name="action" ref="earthquake_shipment_act_window" />
+        <field name="sequence" eval="2" />
+    </record>
+
+</data>
+</odoo>

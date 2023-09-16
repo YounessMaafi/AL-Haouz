@@ -1,0 +1,97 @@
+<odoo>
+<data>
+
+    <record id="view_earthquake_location_tree" model="ir.ui.view">
+        <field name="name">view.earthquake.location.tree</field>
+        <field name="model">earthquake.location</field>
+        <field name="arch" type="xml">
+            <tree string="Eearthquake Location">
+                <field name="name"/>
+                <field name="name2"/>
+                <field name="city"/>
+                <field name="commune_state"/>
+                <field name="intensity"/>
+                <field name="is_accessible"/>
+                <field name="help_type_ids" widget="many2many_tags" options="{'no_create': True, 'color_field': 'color'}"  />
+                <field name="description"/>
+                <field name="total_shipments" sum="Sum Shipments"/>
+                <field name="overall_percent_shipments" sum="Sum Percentage Shipments"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_earthquake_location_form" model="ir.ui.view">
+        <field name="name">view.earthquake.location.form</field>
+        <field name="model">earthquake.location</field>
+        <field name="arch" type="xml">
+            <form string="Earthquake Location">
+                <sheet>
+
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="Name (AR) eg.: الحوز"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <field name="name2"/>
+                        <field name="city"/>
+                        <field name="commune_state"/>
+                        <field name="intensity"/>
+                        <field name="is_accessible"/>
+                        <field name="help_type_ids" widget="many2many_tags" options="{'no_create': True, 'color_field': 'color'}"  />
+                        <field name="total_shipments"/>
+                        <field name="overall_percent_shipments"/>
+                        <field name="description"/>
+                    </group>
+                    <notebook>
+                        <page string="The point">
+                            <field name="the_point"/>
+                        </page>
+                        <page string="Nearest Hospital/Help">
+                            <field name="hospital_helper_ids"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_earthquake_location_search" model="ir.ui.view">
+        <field name="name">view.earthquake.location.search</field>
+        <field name="model">earthquake.location</field>
+        <field name="arch" type="xml">
+            <search string="Earthquake Location Search">
+                <field name="name"/>
+                <field name="name2"/>
+                <field name="city"/>
+                <field name="commune_state"/>
+                <field name="intensity"/>
+                <field name="is_accessible"/>
+                <field name="help_type_ids"/>
+                <field name="total_shipments"/>
+                <field name="overall_percent_shipments"/>
+            </search>
+        </field>
+    </record>
+
+    <menuitem
+        name="Locations"
+        id="menu_earthquake_location_root"
+        web_icon="al_haouz,static/description/location_icon.png"
+        sequence="1"
+        />
+
+    <record id="menu_earthquake_location" model="ir.ui.menu" >
+        <field name="name">Locations</field>
+        <field name="parent_id" ref="menu_earthquake_location_root" />
+        <field name="action" ref="earthquake_location_act_window" />
+        <field name="sequence" eval="1" />
+    </record>
+
+</data>
+</odoo>
